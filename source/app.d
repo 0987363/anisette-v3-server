@@ -99,6 +99,7 @@ int main(string[] args) {
 
 	provisioningPath = runtimePath.buildPath("provisioning");
 
+    /*
 	auto coreADIPath = libraryPath.buildPath("libCoreADI.so");
 	auto SSCPath = libraryPath.buildPath("libstoreservicescore.so");
 
@@ -129,6 +130,7 @@ int main(string[] args) {
 		file.write(coreADIPath, apk.expand(dir["lib/" ~ architectureIdentifier ~ "/libCoreADI.so"]));
 		file.write(SSCPath, apk.expand(dir["lib/" ~ architectureIdentifier ~ "/libstoreservicescore.so"]));
 	}
+    */
 
 	// Initializing ADI and machine if it has not already been made.
 	v1Device = new Device(configurationPath.buildPath("device.json"));

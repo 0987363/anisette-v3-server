@@ -1,0 +1,12 @@
+# Base for builder
+FROM debian:stable-slim AS builder
+# Deps for builder
+RUN apt-get update && apt-get install --no-install-recommends -y ca-certificates ldc git clang dub libz-dev libssl-dev \
+ && apt-get clean \
+ && rm -rf /var/lib/apt/lists/*
+
+# Build for builder
+WORKDIR /opt/
+COPY . .
+RUN DC=ldc2 dub build -c "static" --build-mode allAtOnce -b release --compiler=ldc2
+
